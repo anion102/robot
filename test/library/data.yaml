@@ -1,0 +1,20 @@
+host1: http://127.0.0.1:8080/
+host2: http://127.0.0.1:8081/
+
+mysql:
+  host: 127.0.0.1
+  port: 3306
+  user: root
+  password: '123456'
+
+user1:
+  name: Jenny
+  tel: 18605504935
+  pwd: 123456
+  user_id: 1001
+
+user2:
+  name: Jane
+  tel: 18605500300
+  pwd: 33333
+  user_id: 1002
