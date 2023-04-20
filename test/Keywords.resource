@@ -31,6 +31,7 @@ Verify userinfo valid
     Should Be Equal    ${user}[name]  ${db}[1]
     Close Dbconnection
 
+
 DB Verification
     [Arguments]    ${connect_info}  ${db}
 

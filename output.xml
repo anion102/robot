@@ -1,29 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.2 (Python 3.8.9 on darwin)" generated="20230419 20:26:23.107" rpa="false" schemaversion="3">
-<suite id="s1" name="Robotframework" source="/Users/jenny/PycharmProjects/python_study/Robotframework">
-<suite id="s1-s1" name="Test" source="/Users/jenny/PycharmProjects/python_study/Robotframework/test">
-<suite id="s1-s1-s1" name="Suite1" source="/Users/jenny/PycharmProjects/python_study/Robotframework/test/Suite1">
-<suite id="s1-s1-s1-s1" name="TestOrder" source="/Users/jenny/PycharmProjects/python_study/Robotframework/test/Suite1/TestOrder.robot">
+<robot generator="Robot 6.0.2 (Python 3.8.9 on darwin)" generated="20230420 18:51:22.383" rpa="false" schemaversion="3">
+<suite id="s1" name="TestOrder" source="/Users/jenny/PycharmProjects/python_study/Robotframework/test/Suite1/TestOrder.robot">
 <kw name="Starting Test Api" library="Keywords" type="SETUP">
 <arg>${USER}</arg>
 <arg>${HOST}</arg>
 <kw name="Init Items Data" library="ApiLibrary">
 <arg>${user_tag}</arg>
 <arg>${host_tag}</arg>
-<msg timestamp="20230419 20:26:23.154" level="INFO">yaml data: {'host1': 'http://127.0.0.1:8080/', 'host2': 'http://127.0.0.1:8081/', 'mysql': {'host': '127.0.0.1', 'port': 3306, 'user': 'root', 'password': '123456'}, 'user1': {'name': 'Jenny', 'tel': 18605504935, 'pwd': 123456, 'user_id': 1001}, 'user2': {'name': 'Jane', 'tel': 18605500300, 'pwd': 33333, 'user_id': 1002}}</msg>
-<status status="PASS" starttime="20230419 20:26:23.153" endtime="20230419 20:26:23.154"/>
+<msg timestamp="20230420 18:51:22.440" level="INFO">yaml data: {'host1': 'http://127.0.0.1:8080/', 'host2': 'http://127.0.0.1:8081/', 'mysql': {'host': '127.0.0.1', 'port': 3306, 'user': 'root', 'password': '123456'}, 'user1': {'name': 'Jenny', 'tel': 18605504935, 'pwd': 123456, 'user_id': 1001}, 'user2': {'name': 'Jane', 'tel': 18605500300, 'pwd': 33333, 'user_id': 1002}}</msg>
+<status status="PASS" starttime="20230420 18:51:22.439" endtime="20230420 18:51:22.440"/>
 </kw>
 <kw name="Init Api" library="ApiLibrary">
-<status status="PASS" starttime="20230419 20:26:23.154" endtime="20230419 20:26:23.154"/>
+<status status="PASS" starttime="20230420 18:51:22.440" endtime="20230420 18:51:22.440"/>
 </kw>
-<status status="PASS" starttime="20230419 20:26:23.153" endtime="20230419 20:26:23.154"/>
+<status status="PASS" starttime="20230420 18:51:22.439" endtime="20230420 18:51:22.441"/>
 </kw>
-<test id="s1-s1-s1-s1-t1" name="test user info" line="18">
+<test id="s1-t1" name="test user register" line="13">
+<kw name="Register" library="ApiLibrary">
+<var>${result}</var>
+<msg timestamp="20230420 18:51:22.441" level="INFO">http://127.0.0.1:8080/user_register</msg>
+<msg timestamp="20230420 18:51:22.441" level="INFO">${result} = 123</msg>
+<status status="PASS" starttime="20230420 18:51:22.441" endtime="20230420 18:51:22.441"/>
+</kw>
+<kw name="Warn" library="Keywords">
+<arg>result is ${result}</arg>
+<kw name="Log" library="BuiltIn">
+<arg>${text}</arg>
+<arg>warn</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230420 18:51:22.441" level="WARN">result is 123</msg>
+<status status="PASS" starttime="20230420 18:51:22.441" endtime="20230420 18:51:22.441"/>
+</kw>
+<status status="PASS" starttime="20230420 18:51:22.441" endtime="20230420 18:51:22.441"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${result}</arg>
+<arg>${123}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230420 18:51:22.441" endtime="20230420 18:51:22.441"/>
+</kw>
+<tag>usr api</tag>
+<status status="PASS" starttime="20230420 18:51:22.441" endtime="20230420 18:51:22.442"/>
+</test>
+<test id="s1-t2" name="test user info" line="18">
 <kw name="Get User Information" library="ApiLibrary">
 <var>${result}</var>
 <arg>user2</arg>
-<msg timestamp="20230419 20:26:23.155" level="INFO">${result} = {'user_id': 1002, 'user_name': 'Jane', 'user_tel': 18605500300, 'sex': 'W'}</msg>
-<status status="PASS" starttime="20230419 20:26:23.155" endtime="20230419 20:26:23.155"/>
+<msg timestamp="20230420 18:51:22.442" level="INFO">${result} = {'user_id': 1002, 'user_name': 'Jane', 'user_tel': 18605500300, 'sex': 'W'}</msg>
+<status status="PASS" starttime="20230420 18:51:22.442" endtime="20230420 18:51:22.442"/>
 </kw>
 <kw name="Verify userinfo valid" library="Keywords">
 <arg>${result}</arg>
@@ -31,33 +55,33 @@
 <kw name="Init User" library="ApiLibrary">
 <var>${user}</var>
 <arg>${user_tag}</arg>
-<msg timestamp="20230419 20:26:23.155" level="INFO">${user} = True</msg>
-<status status="PASS" starttime="20230419 20:26:23.155" endtime="20230419 20:26:23.155"/>
+<msg timestamp="20230420 18:51:22.442" level="INFO">${user} = True</msg>
+<status status="PASS" starttime="20230420 18:51:22.442" endtime="20230420 18:51:22.442"/>
 </kw>
 <kw name="Get User Data" library="ApiLibrary">
 <var>${user}</var>
-<msg timestamp="20230419 20:26:23.155" level="INFO">${user} = {'name': 'Jane', 'tel': 18605500300, 'pwd': 33333, 'user_id': 1002}</msg>
-<status status="PASS" starttime="20230419 20:26:23.155" endtime="20230419 20:26:23.155"/>
+<msg timestamp="20230420 18:51:22.442" level="INFO">${user} = {'name': 'Jane', 'tel': 18605500300, 'pwd': 33333, 'user_id': 1002}</msg>
+<status status="PASS" starttime="20230420 18:51:22.442" endtime="20230420 18:51:22.442"/>
 </kw>
 <kw name="Should Be Equal" library="BuiltIn">
 <arg>${user}[user_id]</arg>
 <arg>${result}[user_id]</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" starttime="20230419 20:26:23.155" endtime="20230419 20:26:23.155"/>
+<status status="PASS" starttime="20230420 18:51:22.442" endtime="20230420 18:51:22.442"/>
 </kw>
 <kw name="Connect To Mysql" library="ApiLibrary">
 <var>${db}</var>
 <arg>mysql</arg>
 <arg>user</arg>
-<msg timestamp="20230419 20:26:23.166" level="INFO">127.0.0.1</msg>
-<msg timestamp="20230419 20:26:23.166" level="INFO">${db} = None</msg>
-<status status="PASS" starttime="20230419 20:26:23.155" endtime="20230419 20:26:23.166"/>
+<msg timestamp="20230420 18:51:22.457" level="INFO">127.0.0.1</msg>
+<msg timestamp="20230420 18:51:22.457" level="INFO">${db} = None</msg>
+<status status="PASS" starttime="20230420 18:51:22.442" endtime="20230420 18:51:22.457"/>
 </kw>
 <kw name="Query User" library="ApiLibrary">
 <var>${db}</var>
 <arg>${user}[user_id]</arg>
-<msg timestamp="20230419 20:26:23.166" level="INFO">${db} = (1002, 'Jane', 'w', '18605500300', 'SH')</msg>
-<status status="PASS" starttime="20230419 20:26:23.166" endtime="20230419 20:26:23.166"/>
+<msg timestamp="20230420 18:51:22.457" level="INFO">${db} = (1002, 'Jane', 'w', '18605500300', 'SH')</msg>
+<status status="PASS" starttime="20230420 18:51:22.457" endtime="20230420 18:51:22.457"/>
 </kw>
 <kw name="Warn" library="Keywords">
 <arg>${db}</arg>
@@ -65,50 +89,92 @@
 <arg>${text}</arg>
 <arg>warn</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230419 20:26:23.167" level="WARN">(1002, 'Jane', 'w', '18605500300', 'SH')</msg>
-<status status="PASS" starttime="20230419 20:26:23.167" endtime="20230419 20:26:23.167"/>
+<msg timestamp="20230420 18:51:22.457" level="WARN">(1002, 'Jane', 'w', '18605500300', 'SH')</msg>
+<status status="PASS" starttime="20230420 18:51:22.457" endtime="20230420 18:51:22.458"/>
 </kw>
-<status status="PASS" starttime="20230419 20:26:23.166" endtime="20230419 20:26:23.167"/>
+<status status="PASS" starttime="20230420 18:51:22.457" endtime="20230420 18:51:22.458"/>
 </kw>
 <kw name="Should Be Equal" library="BuiltIn">
 <arg>${user}[name]</arg>
 <arg>${db}[1]</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" starttime="20230419 20:26:23.167" endtime="20230419 20:26:23.167"/>
+<status status="PASS" starttime="20230420 18:51:22.458" endtime="20230420 18:51:22.458"/>
 </kw>
 <kw name="Close Dbconnection" library="ApiLibrary">
-<status status="PASS" starttime="20230419 20:26:23.167" endtime="20230419 20:26:23.168"/>
+<status status="PASS" starttime="20230420 18:51:22.458" endtime="20230420 18:51:22.458"/>
 </kw>
-<status status="PASS" starttime="20230419 20:26:23.155" endtime="20230419 20:26:23.168"/>
+<status status="PASS" starttime="20230420 18:51:22.442" endtime="20230420 18:51:22.458"/>
 </kw>
 <tag>usr api</tag>
-<status status="PASS" starttime="20230419 20:26:23.154" endtime="20230419 20:26:23.168"/>
+<status status="PASS" starttime="20230420 18:51:22.442" endtime="20230420 18:51:22.458"/>
+</test>
+<test id="s1-t3" name="test two number divide" line="22">
+<kw name="Log" library="BuiltIn">
+<arg>the third case</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230420 18:51:22.459" level="INFO">the third case</msg>
+<status status="PASS" starttime="20230420 18:51:22.459" endtime="20230420 18:51:22.459"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${num}</var>
+<arg>24/12</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230420 18:51:22.459" level="INFO">${num} = 2.0</msg>
+<status status="PASS" starttime="20230420 18:51:22.459" endtime="20230420 18:51:22.459"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${num}</arg>
+<arg>${2}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<msg timestamp="20230420 18:51:22.459" level="INFO">Argument types are:
+&lt;class 'float'&gt;
+&lt;class 'int'&gt;</msg>
+<status status="PASS" starttime="20230420 18:51:22.459" endtime="20230420 18:51:22.459"/>
+</kw>
+<tag>Demo</tag>
+<status status="PASS" starttime="20230420 18:51:22.459" endtime="20230420 18:51:22.459"/>
+</test>
+<test id="s1-t4" name="test two number minus" line="27">
+<kw name="Log" library="BuiltIn">
+<arg>the fourth case</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230420 18:51:22.460" level="INFO">the fourth case</msg>
+<status status="PASS" starttime="20230420 18:51:22.460" endtime="20230420 18:51:22.460"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${num}</var>
+<arg>88-44</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230420 18:51:22.460" level="INFO">${num} = 44</msg>
+<status status="PASS" starttime="20230420 18:51:22.460" endtime="20230420 18:51:22.460"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${num}</arg>
+<arg>${44}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230420 18:51:22.460" endtime="20230420 18:51:22.460"/>
+</kw>
+<tag>Demo</tag>
+<status status="PASS" starttime="20230420 18:51:22.460" endtime="20230420 18:51:22.460"/>
 </test>
 <doc>testing apis related to users
 register, login_in, get_user_info and so on</doc>
-<status status="PASS" starttime="20230419 20:26:23.117" endtime="20230419 20:26:23.168"/>
-</suite>
-<status status="PASS" starttime="20230419 20:26:23.117" endtime="20230419 20:26:23.169"/>
-</suite>
-<status status="PASS" starttime="20230419 20:26:23.116" endtime="20230419 20:26:23.169"/>
-</suite>
-<status status="PASS" starttime="20230419 20:26:23.108" endtime="20230419 20:26:23.169"/>
+<status status="PASS" starttime="20230420 18:51:22.384" endtime="20230420 18:51:22.460"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">usr api</stat>
+<stat pass="2" fail="0" skip="0">Demo</stat>
+<stat pass="2" fail="0" skip="0">usr api</stat>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Robotframework">Robotframework</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s1" name="Test">Robotframework.Test</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="Suite1">Robotframework.Test.Suite1</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s1-s1-s1" name="TestOrder">Robotframework.Test.Suite1.TestOrder</stat>
+<stat pass="4" fail="0" skip="0" id="s1" name="TestOrder">TestOrder</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20230419 20:26:23.167" level="WARN">(1002, 'Jane', 'w', '18605500300', 'SH')</msg>
+<msg timestamp="20230420 18:51:22.441" level="WARN">result is 123</msg>
+<msg timestamp="20230420 18:51:22.457" level="WARN">(1002, 'Jane', 'w', '18605500300', 'SH')</msg>
 </errors>
 </robot>
