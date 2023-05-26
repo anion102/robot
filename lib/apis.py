@@ -83,6 +83,6 @@ class Apis:
             print(ex)
             return ex
 
-api = Apis("https://simple-books-api.glitch.me/")
-books = api.orders(2,'Jenny')
-print(json.loads(books))
+# api = Apis("https://simple-books-api.glitch.me/")
+# books = api.orders(2,'Jenny')
+# print(json.loads(books))
