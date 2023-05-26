@@ -1,3 +1,5 @@
+import json
+
 from robot.api.logger import info, debug, trace, console
 from lib.apis import Apis
 from lib.mysql import Mysql
@@ -78,6 +80,10 @@ class ApiLibrary:
             user_id = self.yaml[user_tag]['user_id']
         user_info = self._api.get_user_info(user_id)
         return user_info
+
+    def get_books(self, book_id=None):
+        book_info = self._api.books(book_id)
+        return json.loads(book_info)
 
     """DB operation functions"""
 

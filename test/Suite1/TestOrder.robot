@@ -15,6 +15,13 @@ test user register
     Warn     result is ${result}
     Should Be Equal    ${result}  ${123}
 
+test book list
+    ${result}=  Get Books    ${2}
+    Warn     result is ${result}
+    Should Be Equal    ${result['id']}  ${2}
+    Should Be Equal    ${result['type']}  non-fiction
+
+
 test user info
     ${result}=  Get User Information    user2
     Verify Userinfo Valid    ${result}  user2

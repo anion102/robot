@@ -1,5 +1,5 @@
-host1: http://127.0.0.1:8080/
-host2: http://127.0.0.1:8081/
+host1: https://simple-books-api.glitch.me/
+host2: https://simple-books-api.glitch.me/
 
 mysql:
   host: 127.0.0.1

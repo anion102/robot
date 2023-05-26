@@ -1,4 +1,6 @@
 # encoding=utf-8
+import json
+
 import yaml
 import sys
 import datetime
@@ -57,5 +59,30 @@ class Apis:
             print(ex)
             return ex
 
-# api = Apis()
-# api.query_orders_by_user(123)
+    def books(self, book_id=None):
+        try:
+            if book_id:
+                url = self.host + sys._getframe().f_code.co_name + '/' +str(book_id)
+            else:
+                url = self.host + sys._getframe().f_code.co_name
+            print(url)
+            result = req_get(url)
+            return result
+        except Exception as ex:
+            print(ex)
+            return ex
+
+    def orders(self, book_id, name):
+        try:
+            param = {'bookId': book_id, 'customerName': name}
+            url = self.host + sys._getframe().f_code.co_name
+            print(url)
+            result = req_post(url, param)
+            return result
+        except Exception as ex:
+            print(ex)
+            return ex
+
+api = Apis("https://simple-books-api.glitch.me/")
+books = api.orders(2,'Jenny')
+print(json.loads(books))
